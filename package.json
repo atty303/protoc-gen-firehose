@@ -9,11 +9,14 @@
     "protoc-gen-firehose": "./bin/protoc-gen-firehose"
   },
   "scripts": {
-    "build": "parcel build src/main.ts",
-    "watch": "parcel watch src/main.ts"
+    "build": "parcel --target node build src/main.ts",
+    "watch": "parcel --target node watch src/main.ts",
+    "gen:google": "pbjs -t static-module google/*.proto -o src/google/proto.js && pbts src/google/proto.js -o src/google/proto.d.ts"
   },
   "dependencies": {
-    "escodegen": "^1.11.1"
+    "escodegen": "^1.11.1",
+    "memory-streams": "^0.1.3",
+    "protobufjs": "^6.8.8"
   },
   "devDependencies": {
     "@types/escodegen": "^0.0.6",

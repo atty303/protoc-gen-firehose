@@ -1,0 +1,14 @@
+syntax = "proto3";
+package test;
+
+message Test {
+  int32 a = 1;
+  string b = 2;
+
+  message Inner {
+    string foo = 1;
+  }
+
+  Inner c = 3;
+}
+
